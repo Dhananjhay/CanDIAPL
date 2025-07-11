@@ -18,14 +18,16 @@ conda activate candiapl-env
 
 ```
 CanDIAPL/
-├── README.md ← This file
+├── README.md                   ← This file
 └── workflow/
-    ├── Snakefile ← Snakemake workflow definition
-    ├── scripts/ ← Python scripts for querying and visualization
-    │ ├── fetch_data.py ← Queries Gaia TAP service using ADQL
-    │ └── view.py ← Converts query results into an HTML table
-    ├── envs/ ← Conda environment YAMLs
-    └── profiles/ ← Snakemake profiles for config
+    ├── Snakefile               ← Snakemake workflow definition
+    ├── config/
+    │   └── config.yaml         ← Parameters for RA, Dec, radius, etc.
+    ├── scripts/                ← Python scripts for querying and visualization
+    │   ├── fetch_data.py       ← Queries Gaia TAP service using ADQL
+    │   └── view.py             ← Converts query results into an HTML table
+    ├── envs/                   ← (Optional) Conda environment YAMLs
+    └── profiles/               ← (Optional) Snakemake profiles for configz
 ```
 
 
