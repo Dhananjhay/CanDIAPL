@@ -4,7 +4,15 @@
 
 This pipeline is ideal for quick exploration and visualization of nearby stars based on a central coordinate in RA/Dec, using the Gaia DR3 database.
 
----
+
+## 📦 Dependencies
+
+The pipeline assumes the following Python packages are available (can be installed via Conda or pip):
+
+```bash
+conda create -n candiapl-env snakemake
+conda activate candiapl-env
+```
 
 ## 📁 Project Structure
 
@@ -46,13 +54,4 @@ From the root of the project:
 ```bash
 cd workflow
 snakemake --cores all
-```
-
-## 📦 Dependencies
-
-The pipeline assumes the following Python packages are available (can be installed via Conda or pip):
-
-```bash
-conda create -n candiapl-env snakemake
-conda activate candiapl-env
 ```
