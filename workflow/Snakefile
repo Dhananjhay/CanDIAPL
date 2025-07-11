@@ -1,6 +1,13 @@
+configfile: "workflow/config/config.yaml"
+
+
 rule fetch_data:
     output:
         out_path="data/gaia_data.csv",
+    params:
+        ra=config["ra"],
+        dec=config["dec"],
+        radius=config["radius"],
     conda:
         "./envs/pyvo.yaml"
     script:
@@ -9,14 +16,14 @@ rule fetch_data:
 
 rule view_data:
     input:
-        table = rules.fetch_data.output.out_path,
+        table=rules.fetch_data.output.out_path,
     output:
-        viewer_html="data/viewer.html"
+        viewer_html="data/viewer.html",
     script:
         "./scripts/view.py"
 
+
 rule all:
     input:
-        rules.view_data.output.viewer_html
-
+        rules.view_data.output.viewer_html,
     default_target: True
