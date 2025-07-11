@@ -1,0 +1,22 @@
+rule fetch_data:
+    output:
+        out_path="data/gaia_data.csv",
+    conda:
+        "./envs/pyvo.yaml"
+    script:
+        "./scripts/fetch_data.py"
+
+
+rule view_data:
+    input:
+        table = rules.fetch_data.output.out_path,
+    output:
+        viewer_html="data/viewer.html"
+    script:
+        "./scripts/view.py"
+
+rule all:
+    input:
+        rules.view_data.output.viewer_html
+
+    default_target: True
