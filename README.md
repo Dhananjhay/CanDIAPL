@@ -45,13 +45,11 @@ The pipeline consists of the following rules:
 3. **`all`**  
    - Final rule that depends on `data/viewer.html`
 
----
 
 ## 🚀 Running the Pipeline
 
 From the root of the project:
 
 ```bash
-cd workflow
 snakemake --cores all
 ```
